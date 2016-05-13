@@ -1,2 +1,2 @@
 *.bundle.js
-node_modules/jquery
+tests/node_modules/jquery
