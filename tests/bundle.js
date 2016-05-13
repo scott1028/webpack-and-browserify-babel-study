@@ -44,9 +44,12 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var lib = __webpack_require__(1);
+	var lib01 = __webpack_require__(1);
+	var lib02 = __webpack_require__(2);  // in ./node_modules/lib_02.js, this is code convention.
 
-	console.log(lib.a);
+	console.log(lib01.a);
+	console.log(lib02);
+	console.log(lib02.helpers.run());
 
 
 /***/ },
@@ -56,6 +59,21 @@
 	'use strict';
 
 	exports.a = 1;
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	exports.helpers = {
+		a: 1,
+		b: 2,
+		run: function(){
+			return this.a + this.b;
+		}
+	};
 
 
 /***/ }
