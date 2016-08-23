@@ -8,7 +8,8 @@ gulp.task('recompile', function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch(['app/index.html', 'app/app.js'], ['recompile']);
+    // webpack will handle app.js.
+    gulp.watch(['app/index.html'], ['recompile']);
     return;
 });
 
