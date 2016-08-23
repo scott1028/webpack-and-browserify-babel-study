@@ -2,3 +2,5 @@
 tests/node_modules/jquery
 */node_modules/*
 node_modules/*
+*/dist/*
+dist/*
