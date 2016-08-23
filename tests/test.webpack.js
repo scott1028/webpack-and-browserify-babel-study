@@ -8,3 +8,4 @@ console.log(lib02.helpers.run());
 
 console.log(lib03('window'));
 console.log(lib03('body').text('hello webpack with jQuery'));
+console.log(31232444);
