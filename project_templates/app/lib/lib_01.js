@@ -1,3 +1,5 @@
 'use strict';
 
-exports.a = 1;
+var lib_02 = require('./lib_02');
+
+exports.a = lib_02.v;
