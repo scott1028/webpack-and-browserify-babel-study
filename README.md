@@ -10,3 +10,4 @@ Browserify 是一个供浏览器环境使用的模块打包工具，像在node�
 
 ![Alt text](https://raw.githubusercontent.com/scott1028/webpack-and-browserify-study/master/browserify_usage.png "browserify_usage.png")
 ![Alt text](https://raw.githubusercontent.com/scott1028/webpack-and-browserify-study/master/webpack_usage.png "webpack.png")
+![Alt text](https://raw.githubusercontent.com/scott1028/webpack-and-browserify-study/master/webpack_with_gulp_usage.png "webpack_with_gulp_usage.png")
