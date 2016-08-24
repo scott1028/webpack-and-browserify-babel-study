@@ -16,6 +16,8 @@ gulp.task('watch', function(){
 gulp.task('default', [], function() {
     gulp.start('recompile');
     gulp.start('watch');
+
+    // first way
     gulp.src('app/app.js')
         .pipe(webpack({
             watch: true,
@@ -24,5 +26,21 @@ gulp.task('default', [], function() {
             }
         }))
         .pipe(gulp.dest('dist/'));
+
+    // second way
     return;
+    webpack({
+        watch: true,
+        entry: {
+            app: './app/app.js',
+            app2: './app/app2.js'
+        },
+        output: {
+            // seperate file
+            filename: '[name]-dist.js'
+            // or all in one
+            // filename: 'dist.js'
+        }
+    }).pipe(gulp.dest('dist/'));
+    // return;
 });
