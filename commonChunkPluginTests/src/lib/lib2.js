@@ -1,5 +1,5 @@
 module.exports = {
-	a: 2,
+	a: 3,
 	echo: function(){
 		console.log(1);
 	}
