@@ -69,8 +69,8 @@
     ];
 
     // start to define for normalize
-    const batter = new normalizr.schema.Entity('batter');
-    const topping = new normalizr.schema.Entity('topping');
+    const batter = new normalizr.schema.Entity('batter');  // for detail obj
+    const topping = new normalizr.schema.Entity('topping');  // for detail obj
     const item = new normalizr.schema.Entity('item', {
         batters: {
             batter: [
@@ -80,10 +80,11 @@
         topping: [
             topping
         ]
-    });
+    });  // for detail obj
+
     const mappingSchema = [
         item
-    ];
+    ];  // for define whole json structure, you can use this to normalize this JSON.
 
     var normalizedData = normalizr.normalize(data, mappingSchema);
     console.log(JSON.stringify(normalizedData, null, 2));
