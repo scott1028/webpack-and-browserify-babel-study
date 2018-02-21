@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="node_modules/normalizr/dist/normalizr.browser.js"></script>
+</head>
+<body>
+<script>
+    // test to normalize data
+    const myData1 = {
+        users: [
+            { id: 1 },
+            { id: 2 }
+        ]
+    };
+
+    const user1 = new normalizr.schema.Entity('users');
+    const mySchema1 = { users: [ user1 ] }
+    const normalizedData = normalizr.normalize(myData1, mySchema1);
+    console.log(JSON.stringify(normalizedData));
+    /*
+        {
+            "entities":{"users":{"1":{"id":1},"2":{"id":2}}},
+            "result":{"users":[1,2]}
+        }
+    */
+
+    // test to denormalize data
+    const user2 = new normalizr.schema.Entity('users');
+    const mySchema2 = { users: [ user2 ] }
+    const entities2 = { users: { '1': { id: 1 }, '2': { id: 2 } } };  // this looks like normalizedData.entities
+    const result2 = { users: [ 1, 2 ] };  // this looks like normalizedData.result
+    const denormalizedData = normalizr.denormalize(result2, mySchema2, entities2);
+    console.log(JSON.stringify(denormalizedData));
+
+    // normalizr.denormalize arguments explaination below
+    /*
+        >> respose:
+        >> {"entities": ??? ,"result": ??? }
+        >> {"entities":{"users":{"1":{"id":1},"2":{"id":2}}},"result":{"users":[1,2]}}
+        >>
+        >> you can entities and result, schema to denormalizr to original data structure.
+    */
+
+    // normalizr.denormalize arguments explaination below
+    /*
+        >> normalizr.denormalize( normalizr.result, your_schema, normalizr.entities )
+    */
+</script>
+</body>
+</html>
