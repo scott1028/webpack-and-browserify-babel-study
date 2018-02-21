@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    // test to normalize data
+    // (1) test to normalize data
     const myData1 = {
         users: [
             { id: 1 },
@@ -25,7 +25,7 @@
         }
     */
 
-    // test to denormalize data
+    // (2) test to denormalize data
     const user2 = new normalizr.schema.Entity('users');
     const mySchema2 = { users: [ user2 ] }
     const entities2 = { users: { '1': { id: 1 }, '2': { id: 2 } } };  // this looks like normalizedData.entities
@@ -46,6 +46,11 @@
     /*
         >> normalizr.denormalize( normalizr.result, your_schema, normalizr.entities )
     */
+
+    // (3) integration test
+    normalizedData.result.users.push(1);  // add data
+    const denormalizedDataFromTestCase1 = normalizr.denormalize(normalizedData.result, mySchema1, normalizedData.entities);
+    console.log(JSON.stringify(denormalizedDataFromTestCase1));
 </script>
 </body>
 </html>
