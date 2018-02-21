@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="node_modules/normalizr/dist/normalizr.browser.js"></script>
+</head>
+<body>
+<script>
+    // test to normalize data
+    const myData1 = {
+        users: [
+            { id: 1 },
+            { id: 2 }
+        ]
+    };
+
+    const user1 = new normalizr.schema.Entity('users');
+    const mySchema1 = { users: [ user1 ] }
+    const normalizedData = normalizr.normalize(myData1, mySchema1);
+    console.log(JSON.stringify(normalizedData));
+
+    // test to denormalize data
+    const user2 = new normalizr.schema.Entity('users');
+    const mySchema2 = { users: [ user2 ] }
+    const entities2 = { users: { '1': { id: 1 }, '2': { id: 2 } } };
+    const denormalizedData = normalizr.denormalize({ users: [ 1, 2 ] }, mySchema2, entities2);
+    console.log(JSON.stringify(denormalizedData));
+</script>
+</body>
+</html>

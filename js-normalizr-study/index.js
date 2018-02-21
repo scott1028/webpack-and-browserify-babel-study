@@ -5,10 +5,10 @@ import { denormalize, normalize, schema } from 'normalizr';
 
 // test to normalize data
 const myData1 = {
-	users: [
-		{ id: 1 },
-		{ id: 2 }
-	]
+    users: [
+        { id: 1 },
+        { id: 2 }
+    ]
 };
 
 const user1 = new schema.Entity('users');
