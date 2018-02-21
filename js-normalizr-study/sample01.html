@@ -17,7 +17,7 @@
     const user1 = new normalizr.schema.Entity('users');
     const mySchema1 = { users: [ user1 ] }
     const normalizedData = normalizr.normalize(myData1, mySchema1);
-    console.log(JSON.stringify(normalizedData));
+    console.log(JSON.stringify(normalizedData, null, 2));
     /*
         {
             "entities":{"users":{"1":{"id":1},"2":{"id":2}}},
@@ -31,7 +31,7 @@
     const entities2 = { users: { '1': { id: 1 }, '2': { id: 2 } } };  // this looks like normalizedData.entities
     const result2 = { users: [ 1, 2 ] };  // this looks like normalizedData.result
     const denormalizedData = normalizr.denormalize(result2, mySchema2, entities2);
-    console.log(JSON.stringify(denormalizedData));
+    console.log(JSON.stringify(denormalizedData, null, 2));
 
     // normalizr.denormalize arguments explaination below
     /*
@@ -50,7 +50,7 @@
     // (3) integration test
     normalizedData.result.users.push(1);  // add data
     const denormalizedDataFromTestCase1 = normalizr.denormalize(normalizedData.result, mySchema1, normalizedData.entities);
-    console.log(JSON.stringify(denormalizedDataFromTestCase1));
+    console.log(JSON.stringify(denormalizedDataFromTestCase1, null, 2));
 </script>
 </body>
 </html>
